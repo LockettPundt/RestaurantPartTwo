@@ -1,0 +1,43 @@
+body {
+  padding: 50px;
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: seagreen;
+}
+
+p {
+  padding: 2vh;
+}
+
+.restoList {
+  padding: 3vh;
+  font-size: 1.3vw;
+}
+
+.stars {
+  font-size: 6vh;
+  padding: 1vw;
+  color: salmon;
+}
+
+.reviewTitle {
+  background-color: thistle;
+  font-weight: bold;
+}
+
+.reviewBox {
+  background-color: skyblue;
+  margin: 1vh;
+}
+
+.pageTitle {
+  font-size: 6vh;
+  margin: 3vh 0;
+}
+
+.restoTitle {
+  font-size: 6vh;
+  color: salmon;
+}

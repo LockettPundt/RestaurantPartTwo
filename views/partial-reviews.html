@@ -1,0 +1,13 @@
+<div>
+    <p class="restoTitle">${reviewInfo.length > 0 ? reviewInfo[0].restaurant : `No Reviews Yet`}</p><br>
+
+    ${reviewInfo.map((review, index) => {
+        let starPrint = "★".repeat(review.stars);
+        return `<div class="reviewBox">
+            <p>Review By: ${review.reviewer} <span class="stars">${starPrint}</span></p><br>
+            <p class="reviewTitle">${review.title}</p>
+            <p>${review.review}</p><br>
+        </div>`;
+    }).join('')}
+
+</div>

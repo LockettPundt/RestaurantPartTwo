@@ -4,10 +4,26 @@
     ${reviewInfo.map((review, index) => {
         let starPrint = "★".repeat(review.stars);
         return `<div class="reviewBox">
-            <p>Review By: ${review.reviewer} <span class="stars">${starPrint}</span></p><br>
+            <p>Review By: <a href="reviewer">${review.reviewer}</a> <span class="stars">${starPrint}</span></p><br>
             <p class="reviewTitle">${review.title}</p>
             <p>${review.review}</p><br>
         </div>`;
     }).join('')}
 
 </div>
+
+<h1>Review ${restoInfo[0].name}:</h1>
+<form class="reviewSubmitForm" action="/" method="POST">
+    <input type="hidden" value="${restoInfo[0].id}" name="restaurant_id">
+    <label>Title
+        <input type="text" placeholder="Enter a Title" name="review_title"/>
+    </label>
+    <label>Stars
+        <input type="text" placeholder="Enter Stars" name="stars"/>
+    </label>
+    <label>My Review
+        <textarea name="reviewArea" name="review_text" placeholder="Enter Your Review Here"></textarea>
+    </label>
+    <button type="submit">Save Review</button>
+
+</form>

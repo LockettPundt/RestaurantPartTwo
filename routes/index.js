@@ -4,25 +4,53 @@ restaurant = require('../models/restaurantModel'),
 router = express.Router();
 
 
-router.get('/:id?', async (req, res, next) => {
-  const {id} = req.params;
+router.get('/', async (req, res, next) => {
+
   let displayInfo = await restaurant.getAll();
-  let reviewArray;
-  !!id ? reviewArray = await restaurant.getAllReviews(id) : console.log('no id');
-  // console.log(id);
-  // console.log(displayInfo);
-  console.log(reviewArray);
+
   
   res.render('template', { 
     locals: {
       title: 'Restaurants',
-      displayInfo: !id ? displayInfo : [],
-      reviewInfo: !!id ? reviewArray : []
+      displayInfo: displayInfo
     },
     partials: {
-      partial: !id ? 'partial-index' : 'partial-reviews'
+      partial: 'partial-index'
     }
   });
+});
+
+router.get('/:id?', async (req, res, next) => {
+  const {id} = req.params;
+
+  const restoInfo = await restaurant.getRestaurant(id);
+  const reviewArray = await restaurant.getAllReviews(id);
+
+  
+  res.render('template', { 
+    locals: {
+      title: 'Reviews',
+      restoInfo: restoInfo,
+      reviewInfo: reviewArray
+    },
+    partials: {
+      partial: 'partial-reviews'
+    }
+  });
+});
+
+
+
+
+
+
+
+router.post('/', async (req, res) => {
+  const {restaurant_id, review_title, reviewArea, stars} = req.body;
+  console.log(req.body);
+  const postReview = await restaurant.createReview(restaurant_id, review_title, parseInt(stars), reviewArea);
+  
+  res.send(200);
 });
 
 module.exports = router;

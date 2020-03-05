@@ -7,6 +7,8 @@ logger = require('morgan'),
 es6Renderer = require('express-es6-template-engine');
 
 const indexRouter = require('./routes/index');
+// const reviewerRouter = require('./routes/reviewer');
+
 
 const app = express();
 app.engine('html', es6Renderer);
@@ -21,5 +23,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+// app.use('/reviewer', reviewerRouter);
 
 module.exports = app;

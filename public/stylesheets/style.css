@@ -5,6 +5,11 @@ body {
 
 a {
   color: seagreen;
+  transition: 0.3s;
+}
+
+a:hover {
+  color:salmon;
 }
 
 p {
@@ -20,6 +25,10 @@ p {
   font-size: 6vh;
   padding: 1vw;
   color: salmon;
+}
+
+.homeLink {
+  font-size: 2vw;
 }
 
 .reviewTitle {
@@ -41,3 +50,4 @@ p {
   font-size: 6vh;
   color: salmon;
 }
+
